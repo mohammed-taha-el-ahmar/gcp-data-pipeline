@@ -1,0 +1,24 @@
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.python-version
+
+# Ruff / Pytest caches
+.ruff_cache/
+.pytest_cache/
+
+# Build artifacts
+**/build/
+*.zip
+
+# Editor / OS
+.vscode/
+.DS_Store

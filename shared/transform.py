@@ -14,7 +14,15 @@ from typing import Any
 
 def transform_record(raw: dict[str, Any]) -> dict[str, Any]:
     """Flatten one raw ingestion record into a warehouse-ready row."""
+    if "ingested_at" not in raw:
+        raise ValueError("raw record is missing required field: ingested_at")
+    if "payload" not in raw:
+        raise ValueError("raw record is missing required field: payload")
+
     payload = raw["payload"]
+    if not isinstance(payload, dict):
+        raise ValueError("raw.payload must be a JSON object")
+
     current = payload.get("current", {})
 
     return {

@@ -68,9 +68,9 @@
   </div>
 
   <script>
-    // TODO: replace with a Cloud Run / Cloud Function endpoint that queries
-    // BigQuery and returns the latest row as JSON.
-    const API_URL = "https://example.invalid/latest";
+    // Set this to your deployed latest Cloud Function URL
+    // (output of `terraform output latest_function_url`)
+    const API_URL = window.__PIPELINE_LATEST_URL || "https://europe-west1-project-68f79b8b-3de5-4c47-bb9.cloudfunctions.net/multicloud-pipeline-latest";
 
     async function load() {
       try {

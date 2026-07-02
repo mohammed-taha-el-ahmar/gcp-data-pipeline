@@ -1,0 +1,30 @@
+[project]
+name = "gcp-data-pipeline"
+version = "0.1.0"
+description = "GCP weather data pipeline with Cloud Functions, Cloud Storage, and BigQuery"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "functions-framework>=3.8.1",
+  "google-cloud-bigquery>=3.35.1",
+  "google-cloud-storage>=3.3.0",
+]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.4.1",
+  "ruff>=0.12.2",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "smoke: fast end-to-end contract checks",
+]

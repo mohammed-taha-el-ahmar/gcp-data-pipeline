@@ -19,7 +19,8 @@ flowchart LR
     B --> C[(Cloud Storage - raw/)]
     C -->|Eventarc trigger| D[Cloud Function: transform]
     D --> E[(BigQuery)]
-    E --> F[Front end / Looker Studio]
+    E --> F[Cloud Function: latest]
+    F --> G[Cloud Run: frontend]
 ```
 
 This repo is one leg of a multi-cloud pattern — see also `aws-data-pipeline`,
